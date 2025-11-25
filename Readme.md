@@ -62,12 +62,13 @@ We'll follow a 5-step learning cycle as shown in the figure below:
   - [**Part 1A**](https://github.com/tx00-resources-en/AI-part1): Introduces the basics of calling a Large Language Model (LLM) and generating text.
   - **Part 1B** will be covered next week.
   - [Activity 1](./material/be-ai-activity.md)
-- Password hashing & `bcrypt`
-  - [Summary](./material/be-password.md)
-  - [Activity 2](./material/be-password-activity.md)
-- Rainbow Attack
+- Password hashing & Rainbow Attack
   - [Rainbow Attack](./material/src/rainbow-table-attack)
-  - [Activity 3](./material/be-rainbow-activity.md)
+  - [Activity 2](./material/be-rainbow-activity.md)  
+- `bcrypt`
+  - [Summary](./material/be-password.md)
+  - [Activity 3](./material/be-password-activity.md)
+
 
 ----
 <details>
