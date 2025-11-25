@@ -47,7 +47,7 @@ We'll follow a 5-step learning cycle as shown in the figure below:
 ### Morning: Pair Programming
 
 - Refactoring last week's code to integrate a database. 
-  - [Summary](./material/be-pp-summary.md): `.env`
+  - [Summary](./material/be-pp-summary.md)
   - [Activity 1](./material/be-pp1.md)
   - [Activity 2](./material/be-pp2.md)  
 
