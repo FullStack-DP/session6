@@ -37,7 +37,7 @@ During the activity, you will **switch roles**: the driver (who writes the code)
 
 5. **Initialize a New Git Repository and Push to GitHub**:
    - Follow the [instructions](./push-to-github.md) to make the directory a new Git repository and push your code to GitHub.
-   - Collaborate with your pair by working on *separate branches* and merging them at the end. Be sure to practice creating pull requests. **If this process seems complex** *at the moment*, you **can skip it for now**, but make sure to watch the related recording for further understanding.
+   <!-- - Collaborate with your pair by working on *separate branches* and merging them at the end. Be sure to practice creating pull requests. **If this process seems complex** *at the moment*, you **can skip it for now**, but make sure to watch the related recording for further understanding. -->
    - **Quick Steps**:
      ```bash
      git init
@@ -573,116 +573,15 @@ In this iteration, we'll set up environment variables in your Express.js applica
    - Run your tests to ensure that everything works as expected with the new configuration.
 
 ----
-## Iteration 5: Implementing Error-Handling Middleware
-
-In this iteration, we will focus on implementing and testing error-handling middleware.
-
-The file `middleware/customMiddleware.js` exports the `errorHandler` middleware. This middleware logs the error message and responds with a generic error message.
-
-```javascript
-const errorHandler = (error, request, response, next) => {
-  console.error(error.message);
-
-  response.status(500).json({
-    message: "Something went wrong!",
-  });
-};
-
-module.exports = { unknownEndpoint, errorHandler };
-```
-
-1. Import Middleware in `app.js`
-
-Update your `app.js` file to import both `unknownEndpoint` and `errorHandler` from `customMiddleware.js`. Replace the existing import statement with the following:
-
-```javascript
-const { unknownEndpoint, errorHandler } = require("./middleware/customMiddleware");
-```
-
-3. Use Middleware in `app.js`
-
-Add the middleware to your Express app before `app.listen`. This ensures that the middleware is applied after all routes and other middleware. Update `app.js` as follows:
-
-```javascript
-// Use the unknownEndpoint middleware for handling undefined routes
-app.use(unknownEndpoint);
-
-// Use the errorHandler middleware for handling errors
-app.use(errorHandler);
-```
-
-4. Test the Error-Handling Middleware
-
-To see the error-handling middleware in action, add a route that triggers an error. Add the following code to `app.js`:
-
-```javascript
-// Example route that throws an error
-app.get('/error', (req, res, next) => {
-  // Trigger an error
-  const error = new Error("Network problem");
-  next(error);
-});
-```
-
-Make a GET request to `http://localhost:4000/error` using your browser, Postman, or cURL. You should receive a response with the message `Something went wrong!"`.
-
-**Important Notes**
-
-1. **Middleware Definition**:
-   - The `errorHandler` middleware uses four parameters: `(error, request, response, next)`. This allows it to handle errors passed through `next()`.
-
-2. **Passing Errors**:
-   - To invoke the error-handling middleware, you use `next(error)` in your route or middleware, passing the error object to the `errorHandler`.
-
----
-## Iteration 6 (Optional)
-
-In this iteration, we will switch from using a local MongoDB server to a cloud-based MongoDB service. 
-
-<!-- 
-This iteration consists of two parts.
-
-### Part A: Update to Cloud-Based URI
-
-1. **Update Environment Configuration**:
-   - Open the `.env` file and change the `MONGO_URI` value from `mongodb://localhost:27017/web-dev` to the URI from Atlas:
-     ```
-     MONGO_URI=<provided-URI>
-     ```
-
-2. **Run Tests**:
-   - Execute `npm test`. If your tests passed in Iterations 2 and 3, they should pass here as well.
-
-### Part B: Set Up MongoDB Atlas 
--->
-
-1. **Create an Atlas Account**:
-   - Register for an account with MongoDB Atlas and follow the setup instructions provided [here](./atlas.md).
-
-2. **Wait for Cluster Readiness**:
-   - Note that it may take up to 30 minutes for the Atlas URI to become operational. You can complete this part outside of class if needed.
-
-3. **Update Environment Configuration**:
-   - Once your Atlas cluster is ready, open the `.env` file and update the `MONGO_URI` to the URI you received from Atlas:
-     ```
-     MONGO_URI=<atlas-URI>
-     ```
-
-<!-- 4. **Run Tests**:
-   - Execute `npm test` again. If your tests were successful in Iterations 2 and 3, they should continue to pass. -->
-
-This iteration helps you transition from a local MongoDB setup to a cloud-based MongoDB Atlas setup, ensuring your application works seamlessly with both environments.
-
-----
-## Iteration 7: PATCH vs PUT
+## Iteration 5: PATCH vs PUT
 
 - **PUT Request**: Used to update an entire resource on the server. A PUT request replaces the entire resource with the new data you provide. When using PUT, you should send the complete updated resource.
 
 - **PATCH Request**: Used for partial updates of a resource. With PATCH, you only need to send the fields you want to update, leaving the rest of the resource unchanged.
 
-### Issue with Wednesday's Code
+### Issue with Last week's Code
 
-Last Wednesday, we encountered an issue where the existing data was not being fully replaced even when using `{ overwrite: true }`. This is because the `overwrite` option is deprecated and does not work as intended. As a result, the current implementation was behaving like a PATCH request rather than a PUT request.
+Last week, we encountered an issue where the existing data was not being fully replaced even when using `{ overwrite: true }`. This is because the `overwrite` option is deprecated and does not work as intended. As a result, the current implementation was behaving like a PATCH request rather than a PUT request.
 
 ### Solution: Using `findOneAndReplace`
 

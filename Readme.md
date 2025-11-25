@@ -38,34 +38,35 @@ We'll follow a 5-step learning cycle as shown in the figure below:
 -----
 ### Topics
 
+- AI API
 - Password hashing
-- JSON Web Tokens (JWT)
+- Rainbow Attack
 
 -----
 
 ### Morning: Pair Programming
 
 - Refactoring last week's code to integrate a database. 
-  - [Summary](./material/be-pp-summary.md): `.env`, `Error-Handling Middleware`, `Cloud-Based` MongoDB Service
+  - [Summary](./material/be-pp-summary.md): `.env`
   - [Activity 1](./material/be-pp1.md)
   - [Activity 2](./material/be-pp2.md)  
-  - (Optional) Please register for an account with MongoDB Atlas and follow the setup instructions provided [here](./material/atlas.md).  
-- The AI activity consists of **two parts**:
-  - [**Part 1A**](https://github.com/tx00-resources-en/AI-part1): Introduces the basics of calling a Large Language Model (LLM) and generating text.
-  - **Part 1B** will be covered next week.
+
+
 -----
 
 ### Afternoon
 
 - ~~Draw.io~~
+- The AI activity consists of **two parts**:
+  - [**Part 1A**](https://github.com/tx00-resources-en/AI-part1): Introduces the basics of calling a Large Language Model (LLM) and generating text.
+  - **Part 1B** will be covered next week.
+  - [Activity 1](./material/be-ai-activity.md)
 - Password hashing & `bcrypt`
   - [Summary](./material/be-password.md)
+  - [Activity 2](./material/be-password-activity.md)
+- Rainbow Attack
   - [Rainbow Attack](./material/src/rainbow-table-attack)
-  - [Activity](./material/be-password-activity.md)
-- JSON Web Tokens (JWT)
-  - [Summary](./material/be-jwt.md)
-  - [Activity](./material/be-jwt-activity.md)
-
+  - [Activity 3](./material/be-rainbow-activity.md)
 
 ----
 <details>
