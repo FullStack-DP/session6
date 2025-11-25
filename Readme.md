@@ -57,6 +57,7 @@ We'll follow a 5-step learning cycle as shown in the figure below:
 ### Afternoon
 
 - ~~Draw.io~~
+- Group Presentations
 - The AI activity consists of **two parts**:
   - [**Part 1A**](https://github.com/tx00-resources-en/AI-part1): Introduces the basics of calling a Large Language Model (LLM) and generating text.
   - **Part 1B** will be covered next week.
