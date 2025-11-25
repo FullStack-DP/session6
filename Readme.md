@@ -59,8 +59,7 @@ We'll follow a 5-step learning cycle as shown in the figure below:
 - ~~Draw.io~~
 - Group Presentations
 - The AI activity consists of **two parts**:
-  - [**Part 1A**](https://github.com/tx00-resources-en/AI-part1): Introduces the basics of calling a Large Language Model (LLM) and generating text.
-  - **Part 1B** will be covered next week.
+  - **Part 1A**: Introduces the basics of calling a Large Language Model (LLM) and generating text. **Part 1B** will be covered next week.
   - [Activity 1](./material/be-ai-activity.md)
 - Password hashing & Rainbow Attack
   - [Rainbow Attack](./material/src/rainbow-table-attack)
