@@ -290,6 +290,29 @@ console.log("\nNote: if we use bcrypt or argon2 with salting, this attack is not
 4. Modify the code to use **bcrypt** and see how salting prevents this attack.  
 
 
+### Note
+
+Attackers often use a **list of common passwords** (dictionary). If they hash each candidate and compare it to the leaked hashes, they can recover the original password.  
+
+In practice, hackers don’t just try passwords one by one — they often build what’s called a **rainbow table**. A rainbow table is a large precomputed database where each entry contains:  
+
+- The **plain-text password** (e.g., `"admin"`)  
+- Its **hashed value** (e.g., `"8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"`)  
+
+This means that instead of hashing every guess during the attack, they can simply **look up the hash** in their table and instantly know the matching password.  
+
+For example, an attacker’s rainbow table might look like this:  
+
+| Plain-text Password | SHA-256 Hash |
+|---------------------|------------------------------------------------------------------|
+| admin               | 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918 |
+| 123456              | 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92 |
+| Ilovecats           | f59ce04dd8baca6d6c47b45f24a87ddc7851f3b94762fe31b7a2e444c592028a |
+
+👉 With such a table, if a leaked database contains the hash `8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918`, the attacker can immediately see that the password was `"admin"`.  
+
+This is why **unsalted hashing is insecure**: the same password always produces the same hash, so attackers can reuse their rainbow tables across different systems.  
+
 ---
 
 ## Ref
